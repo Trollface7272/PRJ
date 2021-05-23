@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19cdda082b53a5499c6d1dd2c027ca3, type: 3}
+  m_Name: Diamond_Ore
+  m_EditorClassIdentifier: 
+  id: 6
+  name: Diamond Ore
+  sprite: {fileID: 21300000, guid: ef4956f24514f554f8df217fe813d432, type: 3}
+  type: 5
+  stackable: 1
+  maxStack: 999
+  description: 
+  tile: {fileID: 11400000, guid: 0f0a7f6e256610b4a84e6ee1d9951829, type: 2}
+  hardness: 3

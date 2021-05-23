@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19cdda082b53a5499c6d1dd2c027ca3, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  id: 22
+  name: Wood
+  sprite: {fileID: 21300000, guid: e1a712d207cafc3499fbfeed084bbf33, type: 3}
+  type: 5
+  stackable: 1
+  maxStack: 999
+  description: 
+  tile: {fileID: 11400000, guid: f8dc7fc82ac6547438c47bd84a9198c6, type: 2}
+  hardness: 0
