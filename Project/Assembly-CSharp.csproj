@@ -43,6 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Entity\ObjectLists\Tiles.cs" />
      <Compile Include="Assets\Scripts\Entity\Inventory\Item\PotionObject.cs" />
+     <Compile Include="Assets\Scripts\Entity\Player\GroundCollisionHandle.cs" />
      <Compile Include="Assets\Scripts\Entity\Player\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Entity\Inventory\Item\ItemObject.cs" />
      <Compile Include="Assets\Scripts\Entity\Inventory\Item\ArmorObject.cs" />

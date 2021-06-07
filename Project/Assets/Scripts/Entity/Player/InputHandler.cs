@@ -8,8 +8,8 @@ namespace Entity.Player {
         }
         
         private void Update() {
-            _playerController.MoveVal = Input.GetAxis("Horizontal");
-            _playerController.Jump = Input.GetButtonDown("Jump") || _playerController.Jump;
+            _playerController.VelocityBase = Input.GetAxis("Horizontal");
+            _playerController.Jump = (Input.GetButtonDown("Jump") && _playerController.CanJump) || _playerController.Jump;
         }
     }
 }
