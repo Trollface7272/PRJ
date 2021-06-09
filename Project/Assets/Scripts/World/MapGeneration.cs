@@ -1,4 +1,5 @@
-using Entity.ObjectLists;
+using Inventory;
+using Inventory.Items;
 using Entity.Player;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -8,7 +9,7 @@ namespace World {
     public class MapGeneration : MonoBehaviour {
         public static MapGeneration Instance { get; private set; }
         [SerializeField] public Tilemap map;
-        [SerializeField] private Tiles tiles;
+        [SerializeField] private InventoryObject tiles;
 
         public int width;
         public int height;
@@ -35,6 +36,7 @@ namespace World {
         }
 
         private void Update() {
+            return;
             if (Input.GetKeyDown(KeyCode.Alpha2)) {
                 map.ClearAllTiles();
             } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
@@ -44,12 +46,12 @@ namespace World {
         }
 
         private void GenerateMap() {
-            Generate(tiles.items[2].tile, -1, 0, new Vector2Int(0, height));
+            Generate(((BlockObject)tiles.items[2].item).tile, -1, 0, new Vector2Int(0, height));
             GenerateDirt();
-            Generate(tiles.items[3].tile, coalSpawnChance, CoalOffset, new Vector2Int(height / 10, height - height / 10));
-            Generate(tiles.items[4].tile, ironSpawnChance, IronOffset, new Vector2Int(height / 10, height - height / 10));
-            Generate(tiles.items[5].tile, goldSpawnChance, GoldOffset, new Vector2Int(height - height / 2, height - height / 10));
-            Generate(tiles.items[6].tile, diamondSpawnChance, DiamondOffset, new Vector2Int(height - height / 10, height));
+            Generate(((BlockObject)tiles.items[3].item).tile, coalSpawnChance, CoalOffset, new Vector2Int(height / 10, height - height / 10));
+            Generate(((BlockObject)tiles.items[4].item).tile, ironSpawnChance, IronOffset, new Vector2Int(height / 10, height - height / 10));
+            Generate(((BlockObject)tiles.items[5].item).tile, goldSpawnChance, GoldOffset, new Vector2Int(height - height / 2, height - height / 10));
+            Generate(((BlockObject)tiles.items[6].item).tile, diamondSpawnChance, DiamondOffset, new Vector2Int(height - height / 10, height));
             
         }
 
@@ -77,11 +79,11 @@ namespace World {
                 }
                 for (var y = Mathf.Min(totalStoneSpawnDistance, 0); y < xMax; y++) {
                     map.SetTile(new Vector3Int(x, y, 0),
-                        y < totalStoneSpawnDistance ? tiles.items[2].tile : tiles.items[1].tile);
+                        y < totalStoneSpawnDistance ? ((BlockObject)tiles.items[2].item).tile : ((BlockObject)tiles.items[1].item).tile);
                 }
 
                 map.SetTile(new Vector3Int(x, xMax, 0),
-                    totalStoneSpawnDistance == xMax ? tiles.items[2].tile : tiles.items[0].tile);
+                    totalStoneSpawnDistance == xMax ? ((BlockObject)tiles.items[2].item).tile : ((BlockObject)tiles.items[0].item).tile);
             }
         }
     }

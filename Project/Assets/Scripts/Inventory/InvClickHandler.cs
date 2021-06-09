@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using Hud;
+using Entity.Player;
 
 namespace Inventory {
     public class InvClickHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
 
         public void OnClick() {
             var pos = InventoryUtils.GetRowAndSlot(gameObject.transform.parent.gameObject.transform, transform);
-            Hud.Instance.HideToolTip();
+            HudControler.Instance.HideToolTip();
             switch (pos[0]) {
                 case 0:
                 case 1:
@@ -29,32 +31,32 @@ namespace Inventory {
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
-            if (!Hud.Instance.IsInvVisible || PlayerController.Instance.player.cursor.item) return;
+            if (!HudControler.Instance.IsInvVisible || PlayerController.Instance.player.cursor.item) return;
             var pos = InventoryUtils.GetRowAndSlot(gameObject.transform.parent.gameObject.transform, transform);
             switch (pos[0]) {
                 case 0:
                 case 1:
                 case 2:
                 case 3:
-                    Hud.Instance.ItemHovered(pos[0] * 6 + pos[1]);
+                    HudControler.Instance.ItemHovered(pos[0] * 6 + pos[1]);
                     break;
                 case 4:
-                    Hud.Instance.VanityHovered(pos[1]);
+                    HudControler.Instance.VanityHovered(pos[1]);
                     break;
                 case 5:
-                    Hud.Instance.ArmorHovered(pos[1]);
+                    HudControler.Instance.ArmorHovered(pos[1]);
                     break;
             }
         }
 
         public void OnPointerExit(PointerEventData eventData) {
-            Hud.Instance.HideToolTip();
+            HudControler.Instance.HideToolTip();
         }
 
         public void OnPointerClick(PointerEventData eventData) {
             if (eventData.button != PointerEventData.InputButton.Right) return;
             var pos = InventoryUtils.GetRowAndSlot(gameObject.transform.parent.gameObject.transform, transform);
-            Hud.Instance.HideToolTip();
+            HudControler.Instance.HideToolTip();
             switch (pos[0]) {
                 case 0:
                 case 1:

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71f8a928b09dd341af93710a094a23c, type: 3}
+  m_Name: Coal_Ore
+  m_EditorClassIdentifier: 
+  id: 4
+  name: Coal Ore
+  sprite: {fileID: 21300000, guid: 15e6b71c31c9e9e4a8112d80ecedc84a, type: 3}
+  type: 5
+  stackable: 1
+  maxStack: 999
+  description: 
+  tile: {fileID: 11400000, guid: 97e72e902ab5c834eb784a51905e70a0, type: 2}
+  hardness: 2

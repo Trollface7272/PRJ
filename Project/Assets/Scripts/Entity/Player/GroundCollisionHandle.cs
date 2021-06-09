@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Entity.Player {
     public class GroundCollisionHandle : MonoBehaviour {
-        [SerializeField] private Collider2D groundCollider;
         private PlayerController _pc;
 
         private void Awake() {

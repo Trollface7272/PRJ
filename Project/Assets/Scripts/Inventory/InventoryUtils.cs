@@ -1,6 +1,7 @@
 ﻿using System;
 using Inventory.Crafting;
 using UnityEngine;
+using Entity.Player;
 
 public static class InventoryUtils {
     public static int[ /*row,slot*/] GetRowAndSlot(Transform rowObj, Transform slotObj) {

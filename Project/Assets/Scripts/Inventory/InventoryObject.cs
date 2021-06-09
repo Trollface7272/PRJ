@@ -3,6 +3,8 @@ using System.Linq;
 using Inventory.Items;
 using UnityEditor;
 using UnityEngine;
+using Entity.Player;
+using Hud;
 
 namespace Inventory {
     [CreateAssetMenu(fileName = "New Inventory Object", menuName = "Inventory System/Inventory")]
@@ -33,7 +35,7 @@ namespace Inventory {
                 items[FindFirstEmptySlot()] = new InventorySlot(item, count - c);
             }
             PlayerController.Instance.player.CheckForRecipes();
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         private int FindFirstEmptySlot() {
@@ -65,7 +67,7 @@ namespace Inventory {
         public void RemoveFromStack(int index, int count) {
             items[index].count -= count;
             if (items[index].count <= 0) ClearSlot(index);
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         private void ClearSlot(int index) {
@@ -93,7 +95,7 @@ namespace Inventory {
                 itm.item = null;
                 count -= itm.count;
             }
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
             return true;
         }
     }

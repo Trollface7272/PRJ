@@ -2,6 +2,7 @@ using System;
 using Hud;
 using UnityEngine;
 using World;
+using Inventory;
 
 namespace Entity.Player {
     public class PlayerController : MonoBehaviour {
@@ -13,6 +14,8 @@ namespace Entity.Player {
                 return _instance;
             }
         }
+
+        [SerializeField] public PlayerObject player;
 
         [Range(0, 500)] public float BaseHealth;
         [Range(0, 500)] public float BonusHealth;
@@ -67,7 +70,8 @@ namespace Entity.Player {
                 Jump = false;
                 _rigidbody2D.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             }
-            transform.position += _velocity * Time.deltaTime;
+            _rigidbody2D.velocity = new Vector3 (_velocity.x, _rigidbody2D.velocity.y, 0);
+            //transform.position += _velocity * Time.deltaTime;
         }
 
         private void Update() {

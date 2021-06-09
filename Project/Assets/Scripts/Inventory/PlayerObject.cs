@@ -5,6 +5,7 @@ using Inventory.Crafting;
 using Inventory.Items;
 using UnityEngine;
 using World;
+using Entity.Player;
 
 namespace Inventory {
     [CreateAssetMenu(fileName = "New Player", menuName = "Inventory System/Player")]
@@ -33,13 +34,13 @@ namespace Inventory {
                         inventory.items[slot].count += cursor.count;
                         cursor.item = null;
                         cursor.count = 0;
-                        Hud.Instance.UpdateHud();
+                        HudControler.Instance.UpdateHud();
                         return;
                     }
 
                     cursor.count = inventory.items[slot].count + cursor.count - cursor.item.maxStack;
                     inventory.items[slot].count = inventory.items[slot].item.maxStack;
-                    Hud.Instance.UpdateHud();
+                    HudControler.Instance.UpdateHud();
                     return;
                 }
 
@@ -48,7 +49,7 @@ namespace Inventory {
                 inventory.items[slot] = temp;
             }
 
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         public void VanityClicked(int slot) {
@@ -57,7 +58,7 @@ namespace Inventory {
             if (!item && equipped) {
                 cursor.item = vanity.items[slot].item;
                 vanity.items[slot] = new InventorySlot(null, 0);
-                Hud.Instance.UpdateHud();
+                HudControler.Instance.UpdateHud();
                 return;
             }
             if (!item || (slot != 0 || item.type != ItemType.Helmet) && (slot != 1 || item.type != ItemType.Armor) &&
@@ -71,7 +72,7 @@ namespace Inventory {
                 vanity.items[slot].item = cursor.item;
                 cursor.item = null;
             }
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         public void ArmorClicked(int slot) {
@@ -80,7 +81,7 @@ namespace Inventory {
             if (!item && equipped) {
                 cursor.item = armor.items[slot].item;
                 armor.items[slot] = new InventorySlot(null, 0);
-                Hud.Instance.UpdateHud();
+                HudControler.Instance.UpdateHud();
                 return;
             }
             if (!item || (slot != 0 || item.type != ItemType.Helmet) && (slot != 1 || item.type != ItemType.Armor) &&
@@ -94,7 +95,7 @@ namespace Inventory {
                 armor.items[slot].item = cursor.item;
                 cursor.item = null;
             }
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         public void CheckForRecipes() {
@@ -106,7 +107,7 @@ namespace Inventory {
                     break;
                 }
             }
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         public void Craft(RecipeObject recipe) {
@@ -116,7 +117,7 @@ namespace Inventory {
             }
             cursor.item = recipe.result;
             cursor.count += 1;
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
 
         public void DropItem(int slot) {
@@ -131,7 +132,7 @@ namespace Inventory {
             pickHandler.count = item.count;
 
             inventory.items[slot].item = null;
-            Hud.Instance.UpdateHud();
+            HudControler.Instance.UpdateHud();
         }
     }
 }
