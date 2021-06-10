@@ -34,8 +34,8 @@ namespace Entity.Player {
         }
 
         private void ChangeActiveSlot(byte a) {
-            if (a > 5) a -= 6;
-            if (a < 0) a += 6;
+            if (a > 250) a = 5;
+            if (a > 5) a = 0;
             PlayerController.Instance.player.activeSlot = a;
             HudControler.Instance.UpdateSlot();
         }

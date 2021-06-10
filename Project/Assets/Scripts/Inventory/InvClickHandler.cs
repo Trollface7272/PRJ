@@ -7,7 +7,8 @@ namespace Inventory {
     public class InvClickHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
 
         public void OnClick() {
-            var pos = InventoryUtils.GetRowAndSlot(gameObject.transform.parent.gameObject.transform, transform);
+            Debug.Log("OnClick");
+            var pos = InventoryUtils.GetRowAndSlot(transform.parent, transform);
             HudControler.Instance.HideToolTip();
             switch (pos[0]) {
                 case 0:
@@ -31,6 +32,7 @@ namespace Inventory {
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
+            Debug.Log("OnPointerEnter");
             if (!HudControler.Instance.IsInvVisible || PlayerController.Instance.player.cursor.item) return;
             var pos = InventoryUtils.GetRowAndSlot(gameObject.transform.parent.gameObject.transform, transform);
             switch (pos[0]) {
