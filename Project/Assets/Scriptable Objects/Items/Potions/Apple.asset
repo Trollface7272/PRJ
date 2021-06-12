@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6c4ec1793c452429ed3d2764c590ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a1a6015d34f3f34db2eeb32c0b65e16, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  id: 17
+  id: 22
   name: Apple
   sprite: {fileID: 21300000, guid: 3562373e787207541abfe73ce11ed22a, type: 3}
   type: 4
   stackable: 1
   maxStack: 99
   description: 
-  healing: 25
+  healing: 10

@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06eac70e5b1605f49af1ac0fa957516e, type: 3}
+  m_Script: {fileID: 11500000, guid: 98d5f43828535a647b7e7ed02740582b, type: 3}
   m_Name: Pants
   m_EditorClassIdentifier: 
-  id: 21
-  name: Pants
-  sprite: {fileID: 21300000, guid: e10ee37445721294bbfaadf100023905, type: 3}
-  type: 9
+  id: 20
+  name: Leggings
+  sprite: {fileID: 21300000, guid: d55a3e626ef57f04d8f768ac9f756022, type: 3}
+  type: 3
   stackable: 0
   maxStack: 1
   description: 
-  armor: 10
+  armor: 2

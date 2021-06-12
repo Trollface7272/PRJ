@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - World - Solid
+  - Dropped Item
+  - Enemy Collision Handle
   layers:
   - Default
   - TransparentFX
@@ -41,6 +43,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: World Background
+    uniqueID: 178987191
+    locked: 0
+  - name: World
+    uniqueID: 4174340711
+    locked: 0
+  - name: World Items
+    uniqueID: 4029919099
     locked: 0
   - name: HUD
     uniqueID: 119127189

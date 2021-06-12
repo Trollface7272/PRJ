@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5476904593402376109}
   - component: {fileID: 6181992077822595624}
   - component: {fileID: 8260860062422802393}
+  - component: {fileID: 4740707401224992706}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -226,6 +227,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4740707401224992706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3724678099807576985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &3785423346010872983
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +372,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.8681183, y: 1.0059757, z: 0.13300323, w: 0.16187668}
+  m_margin: {x: 0.72984314, y: 0.9188175, z: 0.030830383, w: 0.16187668}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -433,7 +451,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1e227e324704d454eac4513b8b036618, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.17623615, a: 0.48235294}
+  m_Color: {r: 0, g: 1, b: 0.3764529, a: 0.3764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

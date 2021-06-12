@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   name: Gold Ore
-  sprite: {fileID: 21300000, guid: e1ab01cbf1b84a14f8ac6ab25a292200, type: 3}
+  sprite: {fileID: 21300000, guid: b59952341f2991b4ab483c71c082b6e2, type: 3}
   type: 5
   stackable: 1
   maxStack: 999

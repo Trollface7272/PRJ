@@ -9,13 +9,13 @@ namespace Entity.Player {
             _pc = PlayerController.Instance;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision) {
-            if (!collision.collider.CompareTag("World - Solid")) return;
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (!other.CompareTag("World - Solid")) return;
             _pc.CanJump = true;
         }
         
-        private void OnCollisionExit2D(Collision2D collision) {
-            if (!collision.collider.CompareTag("World - Solid")) return;
+        private void OnTriggerExit2D(Collider2D other) {
+            if (!other.CompareTag("World - Solid")) return;
             _pc.CanJump = false;
         }
         

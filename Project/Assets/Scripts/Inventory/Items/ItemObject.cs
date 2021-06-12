@@ -10,10 +10,21 @@ namespace Inventory.Items {
         Block,
         Material,
         Consumable,
-        Helmet,
-        Pants,
         Utility,
-        Vanity
+        Vanity,
+        Station
+    }
+
+    public enum ArmorType {
+        Helmet = 0,
+        Chestplate = 1,
+        Pants = 2,
+        Utility = 3,
+    }
+
+    public enum StationType {
+        Crafting = 1 << 1,
+        Smelting = 1 << 2,
     }
     public abstract class ItemObject : ScriptableObject {
         public int id;
@@ -24,5 +35,7 @@ namespace Inventory.Items {
         public int maxStack;
         [TextArea(15,20)]
         public string description;
+
+        public abstract void Clicked();
     }
 }

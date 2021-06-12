@@ -6,5 +6,7 @@ namespace Inventory.Items {
         private void Awake() {
             type = ItemType.Material;
         }
+
+        public override void Clicked() { }
     }
 }

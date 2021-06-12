@@ -1,15 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
 using Entity.Player;
 using UnityEngine;
 using TMPro;
 using Inventory;
 using Inventory.Items;
 using Inventory.Crafting;
+using UnityEngine.Playables;
 
 namespace Hud {
     public class HudControler : MonoBehaviour {
         private static HudControler _instance;
         public static HudControler Instance {
             get {
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                 if (!_instance) _instance = FindObjectOfType<HudControler>();
                 return _instance;
             }
@@ -34,6 +38,7 @@ namespace Hud {
         private const int RowCount = 3;
         private const int SlotCount = 6;
         private PlayerObject _player;
+        private int _craftingOffset = 0;
         
         private SpriteRenderer[,] _invSr;
         private TextMeshProUGUI[,] _invTxt;
@@ -42,6 +47,7 @@ namespace Hud {
         private SpriteRenderer[] _vanSr;
 
         private SpriteRenderer[] _craftSr;
+        private Recipe[] _craftRc;
 
         private SpriteRenderer[,] _incSr;
         private TextMeshProUGUI[,] _incTxt;
@@ -66,6 +72,7 @@ namespace Hud {
             _armSr = new SpriteRenderer[7];
             _vanSr = new SpriteRenderer[7];
             _craftSr = new SpriteRenderer[5];
+            _craftRc = new Recipe[5];
             _incSr = new SpriteRenderer[5, 10];
             _incTxt = new TextMeshProUGUI[5, 10];
             
@@ -88,13 +95,14 @@ namespace Hud {
             }
 
             for (var i = 0; i < 5; i++) { //Load crafting elements
-                _craftSr[i] = crafting.transform.GetChild(i).GetChild(1).GetComponent<SpriteRenderer>();
+                _craftSr[i] = crafting.transform.GetChild(i).GetChild(0).GetChild(1).GetComponent<SpriteRenderer>();
+                _craftRc[i] = crafting.transform.GetChild(i).GetChild(0).GetComponent<Recipe>();
             }
             
             for (var i = 0; i < 5; i++) { //Load crafting ingredients elements
                 for (var j = 0; j < 10; j++) {
-                    _incSr[i, j] = crafting.transform.GetChild(i).GetChild(3).GetChild(j).GetChild(1).GetComponent<SpriteRenderer>();
-                    _incTxt[i, j] = crafting.transform.GetChild(i).GetChild(3).GetChild(j).GetChild(2).GetComponent<TextMeshProUGUI>();
+                    _incSr[i, j] = crafting.transform.GetChild(i).GetChild(1).GetChild(j).GetChild(1).GetComponent<SpriteRenderer>();
+                    _incTxt[i, j] = crafting.transform.GetChild(i).GetChild(1).GetChild(j).GetChild(2).GetComponent<TextMeshProUGUI>();
                 }
             }
             
@@ -125,8 +133,8 @@ namespace Hud {
         } 
 
         public void UpdateBars() {
-            _health.UpdateBar(_pc.CurrentHealth / _pc.MaxHealth);
-            _mana.UpdateBar(_pc.CurrentMana / _pc.MaxMana);
+            _health.UpdateBar(_player.CurrentHealth / _player.MaxHealth);
+            _mana.UpdateBar(_player.CurrentMana / _player.MaxMana);
         }
 
         public void UpdateHud() {
@@ -192,34 +200,34 @@ namespace Hud {
         }
 
         private void UpdateCrafting() {
+            var recObj = _player.itemList.recipes.Where(rcp => rcp.craftable).ToList();
             var index = 0;
-            for (var i = 0; i < 5; i++) {
-                RecipeObject recipe = null;
-                if (i < _player.recipes.recipes.Count) {
-                    recipe = _player.recipes.recipes[i];
+            for (var i = _craftingOffset; i < recObj.Count && index < 5; i++, index++) {
+                var recipe = recObj[i];
+                _craftSr[index].sprite = recipe.result.sprite;
+                _craftRc[index].RecipeId = recipe.id;
 
-                    if (!recipe.craftable) continue;
-
-                    _craftSr[index].sprite = recipe.result.sprite;
-                } else {
-                    _craftSr[index].sprite = null;
-                }
                 for (var j = 0; j < 10; j++) {
                     if (!recipe || recipe.items.Length <= j ||
                         !recipe.items[j].item) {
-                        _incSr[i, j].gameObject.transform.parent.gameObject.SetActive(false);
-                        _incTxt[i, j].text = "";
+                        _incSr[index, j].gameObject.transform.parent.gameObject.SetActive(false);
+                        _incTxt[index, j].text = "";
                         continue;
                     }
-                    _incSr[i, j].gameObject.transform.parent.gameObject.SetActive(true);
-                    _incSr[i, j].sprite = recipe.items[j].item.sprite;
-                    _incTxt[i, j].text = recipe.items[j].count.ToString();
+                    _incSr[index, j].gameObject.transform.parent.gameObject.SetActive(true);
+                    _incSr[index, j].sprite = recipe.items[j].item.sprite;
+                    _incTxt[index, j].text = recipe.items[j].count.ToString();
                 }
-                index++;
+            }
+            for (; index < 5; index++)
+            for (var j = 0; j < 10; j++) {
+                _incSr[index, j].gameObject.transform.parent.gameObject.SetActive(false);
+                _incTxt[index, j].text = "";
             }
         }
 
         public void ToggleInv() {
+            _player.CheckForRecipes();
             UpdateCrafting();
             IsInvVisible = !IsInvVisible;
             crafting.SetActive(IsInvVisible);
@@ -259,9 +267,29 @@ namespace Hud {
             _ttTxtDesc.text = inv[index].item.description;
             toolTip.SetActive(true);
         }
+        public void RecipeHovered(ItemObject itm) {
+            _ttTxtTitle.text = itm.name;
+            _ttTxtDesc.text = itm.description;
+            toolTip.SetActive(true);
+        }
+        
+        public void IngredientHovered(ItemObject itm) {
+            _ttTxtTitle.text = itm.name;
+            _ttTxtDesc.text = itm.description;
+            toolTip.SetActive(true);
+        }
 
         public void HideToolTip() {
             toolTip.SetActive(false);
+        }
+        
+        public void AddCraftOffset(int offset) {
+            if (_craftingOffset + offset < 0) return;
+            var count = _player.itemList.recipes.Count(rcp => rcp.craftable);
+
+            if (count - 5 < _craftingOffset + offset) return;
+            _craftingOffset += offset;
+            UpdateCrafting();
         }
     }
 }

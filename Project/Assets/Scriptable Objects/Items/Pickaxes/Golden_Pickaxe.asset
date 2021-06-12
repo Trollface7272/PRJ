@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a49fb71b73452d87d8ccb1f3be3f58, type: 3}
+  m_Script: {fileID: 11500000, guid: cbdac930e482aa44fb80e06273dc3e36, type: 3}
   m_Name: Golden_Pickaxe
   m_EditorClassIdentifier: 
-  id: 10
+  id: 12
   name: Golden Pickaxe
   sprite: {fileID: 21300000, guid: 8e066401b5a9be949ba5a1ce2071463c, type: 3}
   type: 1
   stackable: 0
   maxStack: 1
   description: 
-  miningPower: 4
+  miningPower: 2

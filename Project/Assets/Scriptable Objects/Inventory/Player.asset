@@ -16,9 +16,12 @@ MonoBehaviour:
   armor: {fileID: 11400000, guid: c618b29305b81ee408453c91e87af359, type: 2}
   vanity: {fileID: 11400000, guid: d49a7044020efd6438e315fed78365de, type: 2}
   itemList: {fileID: 11400000, guid: 4e69a780b4fa62a4e92a07097b02e3c7, type: 2}
-  recipes: {fileID: 11400000, guid: 0600abb3e0402e240a59c5f50de1d583, type: 2}
   cursor:
     item: {fileID: 0}
     count: 0
-  droppedItemPrefab: {fileID: 0}
-  activeSlot: 0
+  droppedItemPrefab: {fileID: 1326364382850860869, guid: f252cb856ea36ca48a1a08aad623829b, type: 3}
+  baseHealth: 100
+  bonusHealth: 0
+  baseMana: 100
+  bonusMana: 0
+  activeSlot: 1

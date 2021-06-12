@@ -7,5 +7,9 @@ namespace Inventory.Items {
             type = ItemType.Consumable;
             maxStack = 999;
         }
+
+        public override void Clicked() {
+            throw new System.NotImplementedException();
+        }
     }
 }

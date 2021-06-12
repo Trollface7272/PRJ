@@ -7,5 +7,9 @@ namespace Inventory.Items {
             type = ItemType.Weapon;
             maxStack = 1;
         }
+
+        public override void Clicked() {
+            throw new System.NotImplementedException();
+        }
     }
 }

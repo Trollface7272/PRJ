@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Bar : MonoBehaviour {
+    [SerializeField]
     private Image img;
-    private void Start() {
-        img = transform.GetChild(1).GetComponent<Image>();
-    }
-    
+
     public void UpdateBar(float val) {
         img.fillAmount = val;
     }

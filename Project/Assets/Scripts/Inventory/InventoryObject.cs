@@ -12,6 +12,21 @@ namespace Inventory {
         public int length;
         public List<InventorySlot> items = new List<InventorySlot>();
 
+        private HudControler _hud;
+        private HudControler Hud {
+            get {
+                if(!_hud) _hud = HudControler.Instance;
+                return _hud;
+            }
+        }
+        private PlayerController _pcController;
+        private PlayerController PlayerController {
+            get {
+                if(!_pcController) _pcController = PlayerController.Instance;
+                return _pcController;
+            }
+        }
+
         public void AddItem(ItemObject item, int count) {
             var currentCount = CountItem(item);
             if (currentCount == -1) {
@@ -34,8 +49,9 @@ namespace Inventory {
                 AddItemToStack(item, c);
                 items[FindFirstEmptySlot()] = new InventorySlot(item, count - c);
             }
-            PlayerController.Instance.player.CheckForRecipes();
-            HudControler.Instance.UpdateHud();
+            if (Hud.IsInvVisible)
+                PlayerController.player.CheckForRecipes();
+            Hud.UpdateHud();
         }
 
         private int FindFirstEmptySlot() {
@@ -67,7 +83,7 @@ namespace Inventory {
         public void RemoveFromStack(int index, int count) {
             items[index].count -= count;
             if (items[index].count <= 0) ClearSlot(index);
-            HudControler.Instance.UpdateHud();
+            Hud.UpdateHud();
         }
 
         private void ClearSlot(int index) {
@@ -89,13 +105,14 @@ namespace Inventory {
 
                 if (itm.count < count) {
                     itm.item = null;
+                    itm.count = 0;
                     break;
                 }
 
                 itm.item = null;
                 count -= itm.count;
             }
-            HudControler.Instance.UpdateHud();
+            Hud.UpdateHud();
             return true;
         }
     }

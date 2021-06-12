@@ -1,30 +1,24 @@
-﻿using Inventory.Items;
+﻿using Entity.Player;
 using UnityEngine.Tilemaps;
-using Entity.Player;
 
-public static class ItemUtils {
-    public static bool IsBreakable(PickaxeObject pick, BlockObject tile) {
-        return pick.miningPower >= tile.hardness;
-    }
-    
-    public static ItemObject TileToItem(Tile tile) {
-        switch (tile.name) {
-            case "dirt_grass":
-                return PlayerController.Instance.player.itemList.GetItemAt(0);
-            case "dirt":
-                return PlayerController.Instance.player.itemList.GetItemAt(1);
-            case "stone":
-                return PlayerController.Instance.player.itemList.GetItemAt(2);
-            case "stone_coal":
-                return PlayerController.Instance.player.itemList.GetItemAt(3);
-            case "stone_browniron":
-                return PlayerController.Instance.player.itemList.GetItemAt(4);
-            case "stone_gold":
-                return PlayerController.Instance.player.itemList.GetItemAt(5);
-            case "stone_diamond":
-                return PlayerController.Instance.player.itemList.GetItemAt(6);
+namespace Inventory.Items {
+    public static class ItemUtils {
+        public static bool IsBreakable(PickaxeObject pick, BlockObject tile) {
+            return pick.miningPower >= tile.hardness;
         }
-
-        return null;
+    
+        public static BlockObject TileToItem(Tile tile) {
+            var items = PlayerController.Instance.player.itemList;
+            return tile.name switch {
+                "dirt_grass" => items.FindTileByName("Grass"),
+                "dirt" => items.FindTileByName("Dirt"),
+                "stone" => items.FindTileByName("Stone"),
+                "stone_coal" => items.FindTileByName("Coal Ore"),
+                "stone_browniron" => items.FindTileByName("Iron Ore"),
+                "stone_gold" => items.FindTileByName("Gold Ore"),
+                "stone_diamond" => items.FindTileByName("Grass"),
+                _ => null
+            };
+        }
     }
 }

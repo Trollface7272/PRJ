@@ -7,5 +7,7 @@ namespace Inventory.Items {
             stackable = false;
             maxStack = 1;
         }
+
+        public override void Clicked() { }
     }
 }

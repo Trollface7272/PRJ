@@ -1,7 +1,6 @@
 using System;
 using Hud;
 using UnityEngine;
-using World;
 using Inventory;
 
 namespace Entity.Player {
@@ -17,30 +16,7 @@ namespace Entity.Player {
 
         [SerializeField] public PlayerObject player;
 
-        [Range(0, 500)] public float BaseHealth;
-        [Range(0, 500)] public float BonusHealth;
-        public float MaxHealth { get => BaseHealth + BonusHealth; }
-        private float _currentHealth;
-        public float CurrentHealth {
-            get => _currentHealth;
-            set {
-                _currentHealth = Math.Min(value, MaxHealth);
-                if (_currentHealth <= 0) HandleDeath();
-                HudControler.Instance.UpdateBars();
-            }
-        }
-
-        [Range(0, 500)] public float BaseMana;
-        [Range(0, 500)] public float BonusMana;
-        public float MaxMana { get => BaseMana + BonusMana; }
-        private float _currentMana;
-        public float CurrentMana {
-			get => _currentMana;
-			set {
-                _currentMana = Math.Min(value, MaxMana);
-                HudControler.Instance.UpdateBars();
-            }
-		}
+        private double _hurtTime;
 
 
 
@@ -61,8 +37,9 @@ namespace Entity.Player {
 
         private void Start() {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _currentHealth = MaxHealth;
-            _currentMana = MaxMana;
+            player.CurrentHealth = player.MaxHealth;
+            player.CurrentMana = player.MaxMana;
+            HudControler.Instance.UpdateSlot();
         }
         
         private void FixedUpdate() {
@@ -79,8 +56,8 @@ namespace Entity.Player {
             pos.z = -10;
             cam.transform.position = pos;
             if (Input.GetKeyDown("h")) {
-                CurrentHealth = CurrentHealth - 5;
-                CurrentMana = CurrentHealth - 5;
+                player.CurrentHealth -= 5;
+                player.CurrentMana -= 5;
             }
         }
 
@@ -90,15 +67,12 @@ namespace Entity.Player {
 
         public void TeleportToSpawn() => transform.position = _spawnPoint;
 
-        public void HandleDeath() {
-            TeleportToSpawn();
-            CurrentHealth = BaseHealth;
-            CurrentMana = BaseMana;
-        }
+        
 
-        public bool UseMana(float val) {
-            if (CurrentMana > val) return false;
-            CurrentMana -= val;
+        public bool Hurt(int dmg) {
+            if (_hurtTime > (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds) return false;
+            player.CurrentHealth -= dmg;
+            _hurtTime = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds + 0.5f;
             return true;
         }
     }

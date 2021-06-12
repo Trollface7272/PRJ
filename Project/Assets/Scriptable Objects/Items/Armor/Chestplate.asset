@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06eac70e5b1605f49af1ac0fa957516e, type: 3}
+  m_Script: {fileID: 11500000, guid: 98d5f43828535a647b7e7ed02740582b, type: 3}
   m_Name: Chestplate
   m_EditorClassIdentifier: 
-  id: 20
+  id: 21
   name: Chestplate
-  sprite: {fileID: 21300000, guid: a41a8faced7861444b94ccbfe2c03491, type: 3}
+  sprite: {fileID: 21300000, guid: 531fe525551b4124e9732091b3f8646e, type: 3}
   type: 3
   stackable: 0
   maxStack: 1
   description: 
-  armor: 15
+  armor: 3

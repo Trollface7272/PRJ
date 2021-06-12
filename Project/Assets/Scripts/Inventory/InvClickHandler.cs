@@ -7,7 +7,7 @@ namespace Inventory {
     public class InvClickHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
 
         public void OnClick() {
-            Debug.Log("OnClick");
+            if (transform.parent.name == "Ingredient" || transform.parent.name == "Crafting") return;
             var pos = InventoryUtils.GetRowAndSlot(transform.parent, transform);
             HudControler.Instance.HideToolTip();
             switch (pos[0]) {
@@ -23,18 +23,17 @@ namespace Inventory {
                 case 5:
                     PlayerController.Instance.player.ArmorClicked(pos[1]);
                     break;
+                case 12:
+                    break;
+                case 13:
+                    break;
             }
             if (!PlayerController.Instance.player.cursor.item) OnPointerEnter(null);
         }
 
-        public void CraftOnClick() {
-            PlayerController.Instance.player.Craft(InventoryUtils.SlotToRecipe(transform));
-        }
-
         public void OnPointerEnter(PointerEventData eventData) {
-            Debug.Log("OnPointerEnter");
             if (!HudControler.Instance.IsInvVisible || PlayerController.Instance.player.cursor.item) return;
-            var pos = InventoryUtils.GetRowAndSlot(gameObject.transform.parent.gameObject.transform, transform);
+            var pos = InventoryUtils.GetRowAndSlot(transform.parent, transform);
             switch (pos[0]) {
                 case 0:
                 case 1:
@@ -47,6 +46,18 @@ namespace Inventory {
                     break;
                 case 5:
                     HudControler.Instance.ArmorHovered(pos[1]);
+                    break;
+                case 12:
+                    var recipe = PlayerController.Instance.player.itemList.recipes[transform.GetComponent<Recipe>().RecipeId-1].result;
+                    if (!recipe) return;
+                    HudControler.Instance.RecipeHovered(recipe);
+                    break;
+                case 13:
+                    var item = PlayerController.Instance.player.itemList.recipes[transform.parent.parent.GetChild(0).GetComponent<Recipe>().RecipeId-1].items[pos[1]].item;
+                    if (!item) return;
+                    HudControler.Instance.IngredientHovered(item);
+                    break;
+                default:
                     break;
             }
         }
