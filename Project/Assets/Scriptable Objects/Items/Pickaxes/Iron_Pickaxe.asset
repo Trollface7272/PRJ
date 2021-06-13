@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 11
   name: Iton Pickaxe
-  sprite: {fileID: 21300000, guid: eab11c91f6dbd594e8c178942dfed2fa, type: 3}
+  sprite: {fileID: 21300000, guid: 23478a7356ddc654698854007022f4aa, type: 3}
   type: 1
   stackable: 0
   maxStack: 1
   description: 
+  weaponType: 0
+  damage: 3
+  swingDelay: 200
   miningPower: 3

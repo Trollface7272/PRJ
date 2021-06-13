@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 23
   name: Stew
-  sprite: {fileID: 21300000, guid: 726b9eb0d0f6459468e46a667719e8db, type: 3}
+  sprite: {fileID: 21300000, guid: 5fa02123c02b7be4ab30e63fe97810c2, type: 3}
   type: 4
   stackable: 1
   maxStack: 99

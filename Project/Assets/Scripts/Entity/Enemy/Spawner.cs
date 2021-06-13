@@ -10,7 +10,7 @@ namespace Entity.Enemy {
         public EnemyList enemies;
 
         private void Update() {
-            var chance = Random.Range(0, 1000);
+            var chance = Random.Range(0, 5000);
             if (chance == 727) {
                 SpawnDaytimeEnemy();
             }

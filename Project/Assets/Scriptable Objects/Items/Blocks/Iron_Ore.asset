@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   name: Iron Ore
-  sprite: {fileID: 21300000, guid: 8c41e1a4ffdb5bb4ab366f3c7e424dfe, type: 3}
+  sprite: {fileID: 21300000, guid: 93f3d6e414abda2419e0d0fcd1035fe3, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: 826b668faae5b3c4a945b6cfeea91ad7, type: 2}
+  tile: {fileID: 11400000, guid: 5fa5751b5214fd9459eeb661a2121561, type: 2}
   hardness: 2

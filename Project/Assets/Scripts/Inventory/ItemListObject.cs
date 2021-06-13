@@ -4,6 +4,7 @@ using System.Linq;
 using Inventory.Crafting;
 using Inventory.Items;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Inventory {
     [CreateAssetMenu(fileName = "New Item List Object", menuName = "Inventory System/Item List")]
@@ -13,8 +14,15 @@ namespace Inventory {
         public List<OreObject> ores;
         public List<RecipeObject> recipes;
 
-        public BlockObject FindTileByName(string oreName) {
-            return tiles.FirstOrDefault(tile => tile.name == oreName);
+        public BlockObject FindTileByName(string tileName) {
+            return tiles.FirstOrDefault(tile => tile.name == tileName);
+        }
+        public BlockObject FindTileByTile(Tile t) {
+            return tiles.FirstOrDefault(tile => tile.tile.name == t.name);
+        }
+
+        public ItemObject FindItemByName(string itemName) {
+            return items.FirstOrDefault(item => item.name == itemName);
         }
     }
 }

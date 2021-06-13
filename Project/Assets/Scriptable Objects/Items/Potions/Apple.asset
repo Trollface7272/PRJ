@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 22
   name: Apple
-  sprite: {fileID: 21300000, guid: 3562373e787207541abfe73ce11ed22a, type: 3}
+  sprite: {fileID: 21300000, guid: b993b3e3299a4dc4bb212998d22d2bda, type: 3}
   type: 4
   stackable: 1
   maxStack: 99

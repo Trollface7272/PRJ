@@ -149,6 +149,7 @@ namespace Inventory {
         
         public void DropItem(int slot) {
             var item = inventory.items[slot];
+            if (!item.item) return;
             var itemObj = Instantiate(droppedItemPrefab, PlayerController.Instance.transform.position - new Vector3(0, -1, 0), Quaternion.identity);
             var pickHandler = itemObj.GetComponent<PickupHandler>();
             var rigidBody = itemObj.GetComponent<Rigidbody2D>();
@@ -172,8 +173,6 @@ namespace Inventory {
                     break;
                 }
             }
-
-            HudControler.Instance.UpdateHud();
         }
 
         public void Craft(RecipeObject recipe) {

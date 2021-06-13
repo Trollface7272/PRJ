@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   name: Grass
-  sprite: {fileID: 21300000, guid: 47927d03181497c488d3ceb6e0a1ce62, type: 3}
+  sprite: {fileID: 21300000, guid: 7105d696c6a17ff4386097d383a2d402, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: 06bf5b6ed746bc5459e18cc2614def3d, type: 2}
+  tile: {fileID: 11400000, guid: 23adc716f8ef4314d9915c01bfe81a70, type: 2}
   hardness: 0

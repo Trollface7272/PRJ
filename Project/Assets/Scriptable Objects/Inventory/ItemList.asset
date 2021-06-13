@@ -26,11 +26,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b712407fe88fbdd4ea88d9cac2b1aad3, type: 2}
   - {fileID: 11400000, guid: 0b33ba9708c4f534d976edc4d669fa7b, type: 2}
   - {fileID: 11400000, guid: 222c656fecf686348b65ec499cfa4de9, type: 2}
-  - {fileID: 11400000, guid: 75c86f7f50f421e41bbec8d953ba0101, type: 2}
-  - {fileID: 11400000, guid: e64fa758e3453d745a6083590ad132f6, type: 2}
-  - {fileID: 11400000, guid: 5e952772a9ba42b4291e68b63fd99513, type: 2}
-  - {fileID: 11400000, guid: a75256837248af540a689cdf3684cdfd, type: 2}
-  - {fileID: 11400000, guid: a1284429569b0c4458698f7ac41d310a, type: 2}
+  - {fileID: 11400000, guid: a7d01d06590a99f418693ebc620973b2, type: 2}
+  - {fileID: 11400000, guid: ac211f7e87066634daa2a69356436e4c, type: 2}
+  - {fileID: 11400000, guid: 77c7be9b27adc484ea46b9d072461fe9, type: 2}
+  - {fileID: 11400000, guid: a63acd84a5c9440458ffeaee8442aeb8, type: 2}
+  - {fileID: 11400000, guid: b83e5a89a2deff64abe6aa677978df71, type: 2}
   - {fileID: 11400000, guid: bf784a2c4abb2bc4fac6a502781d1f7d, type: 2}
   - {fileID: 11400000, guid: bf86f12a36db2814d8abc9c9b68f1b80, type: 2}
   - {fileID: 11400000, guid: a6389d37ab90bc24c8ab259f6f576474, type: 2}
@@ -40,6 +40,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6fa357c0160f29641971e1cf028a9fc7, type: 2}
   - {fileID: 11400000, guid: bbcba52cb1fa50e40bab6420d571f2ae, type: 2}
   - {fileID: 11400000, guid: cb15ca55874a4544fb463328fb0b5692, type: 2}
+  - {fileID: 11400000, guid: 9943b7f0cfb1c074b9a9aa9257214362, type: 2}
   tiles:
   - {fileID: 11400000, guid: a4686ac067dede646b2f63257899928d, type: 2}
   - {fileID: 11400000, guid: b207dc36567443d4390211f9e1e77c53, type: 2}
@@ -49,6 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 421f5194c09ff4c4589bdb5b3d77b0e8, type: 2}
   - {fileID: 11400000, guid: b20df376cd1268a498990179bdecf8f6, type: 2}
   - {fileID: 11400000, guid: 5b0e6e7ce84360c41b0a384f3de2adbf, type: 2}
+  - {fileID: 11400000, guid: 9943b7f0cfb1c074b9a9aa9257214362, type: 2}
   ores:
   - {fileID: 11400000, guid: 38029794333cd384288a89b1b23a5ecc, type: 2}
   - {fileID: 11400000, guid: d9850261e4a827745ae5b69fdd2c2d99, type: 2}

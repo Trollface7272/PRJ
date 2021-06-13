@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   block: {fileID: 11400000, guid: 244d4516fd93d9044863f3a870ed07e8, type: 2}
-  spawnChance: 0.082
+  spawnChance: 0.1
   seedOffset: 125000
   spawn: {x: 0.1, y: 0.8}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Coal
   m_EditorClassIdentifier: 
   block: {fileID: 11400000, guid: 47f0f2a0dab803f4d90de094fc0385d6, type: 2}
-  spawnChance: 0.101
+  spawnChance: 0.15
   seedOffset: -125000
   spawn: {x: 0.1, y: 0.8}

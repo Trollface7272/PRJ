@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   name: Coal Ore
-  sprite: {fileID: 21300000, guid: b76bd96fb2c3fc548a080ae46431a0ff, type: 3}
+  sprite: {fileID: 21300000, guid: ebc49c1e1e348f24e94cf3e31048ffcd, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: 97e72e902ab5c834eb784a51905e70a0, type: 2}
+  tile: {fileID: 11400000, guid: acbeaf94afb6079449dd4a4a9657c4f7, type: 2}
   hardness: 2

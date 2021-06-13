@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 26
   name: Gold Ingot
-  sprite: {fileID: 21300000, guid: e1ab01cbf1b84a14f8ac6ab25a292200, type: 3}
+  sprite: {fileID: 21300000, guid: a1dfecc628183a243bfbc4a79bebb864, type: 3}
   type: 6
   stackable: 1
   maxStack: 999

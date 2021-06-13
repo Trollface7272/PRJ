@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   name: Wood
-  sprite: {fileID: 21300000, guid: d012092d7b9306b409f6a4df8e93ddac, type: 3}
+  sprite: {fileID: 21300000, guid: de4b0e3b3e46a5f488b15b0a9df0e43e, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: 3dee21f028891454f91ec4d567f6d0a9, type: 2}
+  tile: {fileID: 11400000, guid: 501cefc36fc22a147868aa205c2abd6d, type: 2}
   hardness: 0

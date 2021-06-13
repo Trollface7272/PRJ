@@ -7,6 +7,9 @@ TagManager:
   - World - Solid
   - Dropped Item
   - Enemy Collision Handle
+  - World - Background
+  - Weapons
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -52,6 +55,9 @@ TagManager:
     locked: 0
   - name: World Items
     uniqueID: 4029919099
+    locked: 0
+  - name: Entities
+    uniqueID: 1538670469
     locked: 0
   - name: HUD
     uniqueID: 119127189

@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 10
   name: Stone Pickaxe
-  sprite: {fileID: 21300000, guid: 31376a974942def4c82ed4e8e6cbea66, type: 3}
+  sprite: {fileID: 21300000, guid: bf78c6fbae9d0f74cb8af1f63ec037c9, type: 3}
   type: 1
   stackable: 0
   maxStack: 1
   description: 
+  weaponType: 0
+  damage: 2
+  swingDelay: 200
   miningPower: 2

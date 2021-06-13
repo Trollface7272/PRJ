@@ -24,6 +24,7 @@ namespace Entity.Player {
             _playerController.Jump = (Input.GetButtonDown("Jump") && _playerController.CanJump) || _playerController.Jump;
             HandleInv();
             HandleClick();
+            if (Input.GetKeyDown(KeyCode.Escape)) EscMenu.Instance.Toggle();
         }
 
         private void ChangeActiveSlot(byte a) {

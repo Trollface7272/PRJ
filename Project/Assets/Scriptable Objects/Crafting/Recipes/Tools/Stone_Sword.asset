@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9fc2ddbb69b2c48a4b3c0ee5405fc3, type: 3}
+  m_Name: Stone_Sword
+  m_EditorClassIdentifier: 
+  id: 4
+  items:
+  - item: {fileID: 11400000, guid: 5b0e6e7ce84360c41b0a384f3de2adbf, type: 2}
+    count: 15
+  - item: {fileID: 11400000, guid: 0b2cbc6786abba549af96d91d50fcc3d, type: 2}
+    count: 25
+  result: {fileID: 11400000, guid: ac211f7e87066634daa2a69356436e4c, type: 2}
+  craftable: 1

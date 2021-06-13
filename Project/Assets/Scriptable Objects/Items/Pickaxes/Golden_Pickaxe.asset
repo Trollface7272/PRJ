@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 12
   name: Golden Pickaxe
-  sprite: {fileID: 21300000, guid: 8e066401b5a9be949ba5a1ce2071463c, type: 3}
+  sprite: {fileID: 21300000, guid: 55d4104f42b2eee4aae3a81873748672, type: 3}
   type: 1
   stackable: 0
   maxStack: 1
   description: 
+  weaponType: 0
+  damage: 2
+  swingDelay: 100
   miningPower: 2

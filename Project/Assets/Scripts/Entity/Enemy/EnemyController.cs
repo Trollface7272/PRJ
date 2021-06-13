@@ -8,7 +8,7 @@ namespace Entity.Enemy {
         public EnemyObject Enemy {
             get => _enemy;
             set {
-                _enemy = value;
+                _enemy = Instantiate(value);
                 Refresh();
             }
         }
@@ -21,6 +21,8 @@ namespace Entity.Enemy {
         private Rigidbody2D rigidBody;
 
         private double _lastJumpTime;
+
+        private double _hurtTime;
 
         private void Refresh() {
             spriteRenderer.sprite = Enemy.sprite;
@@ -36,6 +38,8 @@ namespace Entity.Enemy {
                 _lastJumpTime = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds + 0.5f;
                 rigidBody.AddForce(new Vector2(0, _enemy.jumpPower), ForceMode2D.Impulse);
             }
+            if (velocity.x > 0) transform.localScale = new Vector3(1, 1, 1);
+            else if (velocity.x < 0) transform.localScale = new Vector3(-1, 1, 1);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
@@ -61,6 +65,15 @@ namespace Entity.Enemy {
                 foreach (var coll in c) {
                     Physics2D.IgnoreCollision(coll, collider);
                 }
+            }
+        }
+
+        public void Hurt(int damage) {
+            if (_hurtTime > (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds) return;
+            _hurtTime = (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds + 0.5;
+            _enemy.hp -= damage;
+            if (_enemy.hp <= 0) {
+                Destroy(gameObject);
             }
         }
     }

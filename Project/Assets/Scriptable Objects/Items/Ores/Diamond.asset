@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Diamond
   m_EditorClassIdentifier: 
   block: {fileID: 11400000, guid: b20df376cd1268a498990179bdecf8f6, type: 2}
-  spawnChance: 0.0895
+  spawnChance: 0.09
   seedOffset: 250000
   spawn: {x: 0.7, y: 1}

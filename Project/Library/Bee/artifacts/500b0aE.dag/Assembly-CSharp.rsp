@@ -96,6 +96,7 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -331,10 +332,13 @@
 "Assets/Scripts/Entity/Enemy/EnemyList.cs"
 "Assets/Scripts/Entity/Enemy/EnemyObject.cs"
 "Assets/Scripts/Entity/Enemy/Spawner.cs"
+"Assets/Scripts/Entity/Player/AnimationController.cs"
 "Assets/Scripts/Entity/Player/GroundCollisionHandle.cs"
 "Assets/Scripts/Entity/Player/InputHandler.cs"
 "Assets/Scripts/Entity/Player/PlayerController.cs"
+"Assets/Scripts/Entity/Player/SwordController.cs"
 "Assets/Scripts/Hud/Bar.cs"
+"Assets/Scripts/Hud/EscMenu.cs"
 "Assets/Scripts/Hud/HudControler.cs"
 "Assets/Scripts/Hud/Recipe.cs"
 "Assets/Scripts/Inventory/Crafting/RecipeObject.cs"
@@ -353,11 +357,14 @@
 "Assets/Scripts/Inventory/Items/PickaxeObject.cs"
 "Assets/Scripts/Inventory/Items/PotionObject.cs"
 "Assets/Scripts/Inventory/Items/StationObject.cs"
+"Assets/Scripts/Inventory/Items/SwordObject.cs"
 "Assets/Scripts/Inventory/Items/UtilityObject.cs"
 "Assets/Scripts/Inventory/Items/VanityObject.cs"
 "Assets/Scripts/Inventory/Items/WeaponObject.cs"
 "Assets/Scripts/Inventory/PlayerObject.cs"
 "Assets/Scripts/Menu/MenuController.cs"
+"Assets/Scripts/SavesSystem/SaveController.cs"
+"Assets/Scripts/SavesSystem/SaveObject.cs"
 "Assets/Scripts/World/MapController.cs"
 "Assets/Scripts/World/MapGeneration.cs"
 "Assets/Scripts/World/MapUtils.cs"

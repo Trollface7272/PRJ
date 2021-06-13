@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   block: {fileID: 11400000, guid: 421f5194c09ff4c4589bdb5b3d77b0e8, type: 2}
-  spawnChance: 0.055
+  spawnChance: 0.075
   seedOffset: -250000
   spawn: {x: 0.4, y: 0.8}

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   name: Dirt
-  sprite: {fileID: 21300000, guid: f4779be92d9d44f449f8404011eba3c8, type: 3}
+  sprite: {fileID: 21300000, guid: 9141c64b94a37b84b996d515c0d2452e, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: 80aa7edc2a871b04ab9b3ea7bee8e57e, type: 2}
+  tile: {fileID: 11400000, guid: 516c6f7c8e42e344abff9de9fd21ebf0, type: 2}
   hardness: 0

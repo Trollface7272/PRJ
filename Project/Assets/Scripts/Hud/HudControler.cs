@@ -143,8 +143,10 @@ namespace Hud {
             UpdateCursor();
             UpdateArmor();
             UpdateVanity();
-            if (IsInvVisible)
+            if (IsInvVisible) {
+                _player.CheckForRecipes();
                 UpdateCrafting();
+            }
         }
 
         private void UpdateHotbar() {
@@ -204,6 +206,7 @@ namespace Hud {
             var index = 0;
             for (var i = _craftingOffset; i < recObj.Count && index < 5; i++, index++) {
                 var recipe = recObj[i];
+                if (!recipe.craftable) continue;
                 _craftSr[index].sprite = recipe.result.sprite;
                 _craftRc[index].RecipeId = recipe.id;
 
@@ -219,10 +222,20 @@ namespace Hud {
                     _incTxt[index, j].text = recipe.items[j].count.ToString();
                 }
             }
-            for (; index < 5; index++)
-            for (var j = 0; j < 10; j++) {
-                _incSr[index, j].gameObject.transform.parent.gameObject.SetActive(false);
-                _incTxt[index, j].text = "";
+
+            if (index < 5 && _craftingOffset > 0) {
+                _craftingOffset += index - 5;
+                if (_craftingOffset < 0) _craftingOffset = 0;
+                UpdateCrafting();
+                return;
+            }
+            for (; index < 5; index++) {
+                _craftSr[index].sprite = null;
+                _craftRc[index].RecipeId = -1;
+                for (var j = 0; j < 10; j++) {
+                    _incSr[index, j].gameObject.transform.parent.gameObject.SetActive(false);
+                    _incTxt[index, j].text = "";
+                }
             }
         }
 

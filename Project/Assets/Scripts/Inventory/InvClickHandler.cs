@@ -48,7 +48,9 @@ namespace Inventory {
                     HudControler.Instance.ArmorHovered(pos[1]);
                     break;
                 case 12:
-                    var recipe = PlayerController.Instance.player.itemList.recipes[transform.GetComponent<Recipe>().RecipeId-1].result;
+                    var recipeId = transform.GetComponent<Recipe>().RecipeId;
+                    if (recipeId < 0) return;
+                    var recipe = PlayerController.Instance.player.itemList.recipes[recipeId-1].result;
                     if (!recipe) return;
                     HudControler.Instance.RecipeHovered(recipe);
                     break;

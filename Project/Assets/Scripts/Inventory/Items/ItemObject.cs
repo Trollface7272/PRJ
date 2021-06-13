@@ -22,6 +22,10 @@ namespace Inventory.Items {
         Utility = 3,
     }
 
+    public enum WeaponType {
+        Sword = 0,
+    }
+
     public enum StationType {
         Crafting = 1 << 1,
         Smelting = 1 << 2,

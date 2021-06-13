@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   name: Diamond Ore
-  sprite: {fileID: 21300000, guid: a1eb465166cdd5f47aef0dfbf91cc462, type: 3}
+  sprite: {fileID: 21300000, guid: 43278dda63890ab47bd1fb5e132646ce, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: a6464cf3c9a6bc3478af141b66884d02, type: 2}
+  tile: {fileID: 11400000, guid: 3ce868f88e03a2743b9f72853a24be72, type: 2}
   hardness: 3

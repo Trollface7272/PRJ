@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 25
   name: Iron Ingot
-  sprite: {fileID: 21300000, guid: 07a9113e136b2de40a8cad47b2b34cda, type: 3}
+  sprite: {fileID: 21300000, guid: 074528e4c05fafc4caef8efe7dd93bb4, type: 3}
   type: 6
   stackable: 1
   maxStack: 999

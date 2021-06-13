@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 27
   name: Diamond
-  sprite: {fileID: 21300000, guid: 3c04b4f121b4d4b4d80d542979aa17d8, type: 3}
+  sprite: {fileID: 21300000, guid: b5efeb23b1952274983c3513c851532e, type: 3}
   type: 6
   stackable: 1
   maxStack: 999

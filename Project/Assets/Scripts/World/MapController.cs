@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Inventory.Items;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,28 +19,42 @@ namespace World {
         [SerializeField] private Tilemap nonSolid;
         private Camera _camera;
 
+        public List<BlockData> Blocks;
+        public List<BlockData> Background;
+
         private void Start() {
             _camera = Camera.main;
         }
 
-
+        public int CursorHasTileOrBackground() {
+            var pos = map.WorldToCell(_camera.ScreenToWorldPoint(Input.mousePosition));
+            if (map.GetTile(pos) != null) return 2;
+            if (nonSolid.GetTile(pos) != null) return 1;
+            return 0;
+        }
         public Tile TileAtCursor() {
-            return (Tile) map.GetTile(map.WorldToCell(_camera.ScreenToWorldPoint(Input.mousePosition)));
+            var pos = map.WorldToCell(_camera.ScreenToWorldPoint(Input.mousePosition));
+            var tile = (Tile) map.GetTile(pos);
+            if (tile != null) return tile;
+            return (Tile) nonSolid.GetTile(pos);
         }
 
-        public bool EditBlock(Tile tile, bool force) {
+        public bool EditBlock(BlockObject block, bool force) {
             var pos = map.WorldToCell(_camera.ScreenToWorldPoint(Input.mousePosition));
             if (!force && HasTile(pos, map)) return false;
-            if (!IsConnected(pos)) return false;
-            map.SetTile(pos, tile);
+            if (!force && !IsConnected(pos)) return false;
+            Blocks ??= MapGeneration.Instance.Blocks;
+            Blocks.Add(new BlockData(pos, block));
+            map.SetTile(pos, block == null ? null : block.tile);
             return true;
         }
         
-        public bool EditNonSolid(Tile tile, bool force) {
+        public bool EditNonSolid(BlockObject block, bool force) {
             var pos = nonSolid.WorldToCell(_camera.ScreenToWorldPoint(Input.mousePosition));
             if (!force && HasTile(pos, nonSolid)) return false;
-            if (!HasGround(pos)) return false;
-            nonSolid.SetTile(pos, tile);
+            Background ??= MapGeneration.Instance.Background;
+            Background.Add(new BlockData(pos, block));
+            nonSolid.SetTile(pos, block == null ? null : block.tile);
             return true;
         }
 
@@ -61,6 +77,13 @@ namespace World {
 
         private static bool HasTile(Vector3Int pos, Tilemap m) {
             return m.GetTile(pos) != null;
+        }
+        
+        public void SetTile(Vector3Int pos, BlockObject block) {
+            map.SetTile(pos, block ? block.tile : null);
+        }
+        public void SetBackground(Vector3Int pos, BlockObject block) {
+            nonSolid.SetTile(pos, block ? block.tile : null);
         }
     }
 }

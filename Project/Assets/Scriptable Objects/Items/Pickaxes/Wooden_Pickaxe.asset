@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 9
   name: Wooden Pickaxe
-  sprite: {fileID: 21300000, guid: fc52b77fd98e1d246bafcbac8f400d83, type: 3}
+  sprite: {fileID: 21300000, guid: 5202c34f42e092647af008d1e8e14b4e, type: 3}
   type: 1
   stackable: 0
   maxStack: 1
   description: 
+  weaponType: 0
+  damage: 1
+  swingDelay: 200
   miningPower: 1

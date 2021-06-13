@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   name: Stone
-  sprite: {fileID: 21300000, guid: 275253e448bcade47844708555ae0199, type: 3}
+  sprite: {fileID: 21300000, guid: c4f1cf142be9fd440bc0f79803e97039, type: 3}
   type: 5
   stackable: 1
   maxStack: 999
   description: 
-  tile: {fileID: 11400000, guid: 0d0bb0b104c382948a756994c0bf531a, type: 2}
+  tile: {fileID: 11400000, guid: efb635bed6508674a990abee2d365c03, type: 2}
   hardness: 1

@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 13
   name: Diamond Pickaxe
-  sprite: {fileID: 21300000, guid: 2b61edcd9af20c44fafccae260c0e8cf, type: 3}
+  sprite: {fileID: 21300000, guid: deae170b76b1fe14fb5de3c1d4ecca1d, type: 3}
   type: 1
   stackable: 0
   maxStack: 1
   description: 
+  weaponType: 0
+  damage: 4
+  swingDelay: 200
   miningPower: 4

@@ -6,10 +6,8 @@ using World;
 
 namespace Inventory.Items {
     [CreateAssetMenu(fileName = "New Station Object", menuName = "Inventory System/Items/Station")]
-    public class StationObject : ItemObject {
+    public class StationObject : BlockObject {
         public StationType stationType;
-        public Tile tile;
-        public int hardness;
         private void Awake() {
             maxStack = 1;
             type = ItemType.Station;
@@ -18,9 +16,9 @@ namespace Inventory.Items {
         public override void Clicked() {
             var map = MapController.Instance;
             var player = PlayerController.Instance.player;
-            tile = map.TileAtCursor();
-            if (tile) return;
-            map.EditBlock(tile, false);
+            var t = map.TileAtCursor();
+            if (t) return;
+            map.EditBlock(this,false);
             player.inventory.RemoveFromStack(player.activeSlot, 1);
         }
     }

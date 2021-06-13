@@ -20,3 +20,4 @@ MonoBehaviour:
   maxStack: 1
   description: 
   armor: 3
+  armorType: 1

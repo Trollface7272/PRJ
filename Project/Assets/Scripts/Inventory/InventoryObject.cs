@@ -77,6 +77,7 @@ namespace Inventory {
         }
 
         public ItemObject GetItemAt(int index) {
+            if (index > items.Count || index < 0) return null;
             return items[index] != null ? items[index].item : null;
         }
 
